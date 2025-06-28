@@ -1,6 +1,6 @@
-# Windows AD Lab – Full Step-by-Step Walkthrough 
+# Windows AD Lab
 
-This document walks through every step I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. I'm documenting this to make sure others can replicate it without struggle, including the real issues I hit and how I fixed them.
+This document walks through the steps I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. 
 
 ---
 
@@ -41,7 +41,7 @@ Each VM was manually assigned a static IP in the same subnet (`192.168.10.0/24`)
   - IP: `192.168.10.20`  
   - Same gateway and DNS as above
 
-I initially had an issue where the client’s IP settings would reset on every reboot. What fixed it: after manually reentering the static IP config, I disabled and re-enabled the network adapter — that caused it to stick permanently.
+I initially had an issue where the client’s IP settings would reset on every reboot. What fixed it: after manually reentering the static IP config, I disabled and re-enabled the network adapter, that caused it to stick permanently.
 
 ---
 
@@ -57,9 +57,7 @@ After installing Server 2022:
   - NetBIOS: `CORP`
   - Functional levels: left at 2016 (since 2019/2022 weren’t available in dropdown)
 
-During promotion, I saw the DNS delegation warning — that’s normal when there’s no existing DNS. I ignored it.
-
-After reboot, I noticed the DC’s DNS changed to `127.0.0.1`. This is expected for a domain controller — it points to itself for name resolution.
+After reboot, the DC’s DNS changed to `127.0.0.1`. This is expected for a domain controller, it points to itself for name resolution.
 
 ---
 
@@ -68,9 +66,9 @@ After reboot, I noticed the DC’s DNS changed to `127.0.0.1`. This is expected 
 Used **Active Directory Users and Computers**:
 
 - Created an Organizational Unit (OU): `Workforce`
-- Created a user: `j****.o**` (no password required for this test)
-- Created a security group: `LinuxUsers`
-- Added `j****.o**` to the `LinuxUsers` group
+- Created a user: `j****.o**`
+- Created a security group: `LinuxAdmins`
+- Added `j****.o**` to the `LinuxAdmins` group
 - Moved the user into the `Workforce` OU
 
 ---
@@ -90,7 +88,7 @@ On DC01:
 
 Opened **Group Policy Management**:
 
-- Created a new GPO: `MapDriveS`
+- Created a new GPO: MapDrive
 - Edited it:  
   `User Configuration > Preferences > Windows Settings > Drive Maps`
 - Created a new mapped drive:
@@ -102,7 +100,7 @@ Opened **Group Policy Management**:
 - Linked the GPO to the `Workforce` OU
 - Security filtering: added the `LinuxUsers` group
 
-This is the part where I got stuck. I didn’t know where to link a GPO or how to apply it. I had to ask for guidance — turned out I needed to:
+Then:
 1. Move the user to the correct OU (`Workforce`)
 2. Link the GPO to that OU
 3. Make sure the user is part of the group referenced in the GPO
@@ -142,7 +140,7 @@ Navigated to `S:\` — full access to shared files worked. Then I confirmed I co
 
 `\\DC01\Users\Administrator\Desktop\SharedFolder`
 
-After logging in with the domain account on `CLIENT01`, I checked if the mapped drive was visible.
+After logging in with the domain account on CLIENT01, I checked if the mapped drive was visible.
 
 At first, the `S:` drive didn’t show up.
 
