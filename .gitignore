@@ -1,0 +1,38 @@
+# macOS system files
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets or credentials (none yet but good habit)
+*.pem
+*.key
+*.crt
+*.pfx
+
+# Python-related (if you ever automate with Python)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VirtualBox snapshots and state
+*.vbox-prev
+*.vdi
+*.vmdk
+*.nvram
+*.vmem
+*.vmsd
+*.vmtm
+*.vbox
+*.vbox-tmp
+
+# Screenshots (optional — include only if you plan to host them elsewhere)
+*.png
+*.jpg
+*.jpeg
+
+# System junk
+Thumbs.db
+ehthumbs.db
+desktop.ini
