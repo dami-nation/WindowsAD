@@ -1,8 +1,8 @@
-# Windows Active Directory Lab (On VirtualBox)
+## Windows Active Directory Lab (On VirtualBox)
 
 This is a self-paced hands-on lab simulating a basic Active Directory (AD) domain setup, built from scratch on VirtualBox. The lab includes the installation and configuration of a Windows Server 2022 domain controller and a Windows 10 client machine, domain join, DNS, shared folder access, user/group creation, and GPO enforcement.
 
-## Lab Summary
+Lab Summary
 
 - Domain Controller (Windows Server 2022)
   - Configured as `DC01.corp.local`
@@ -12,7 +12,7 @@ This is a self-paced hands-on lab simulating a basic Active Directory (AD) domai
   - Hostname: `CLIENT01`
   - Joined to the `corp.local` domain
 
-## Features Implemented
+Features Implemented
 
 - Static IP configuration on DC and client
 - Domain setup and user account creation
@@ -21,7 +21,7 @@ This is a self-paced hands-on lab simulating a basic Active Directory (AD) domai
 - User account moved from `Users` to `Workforce` OU
 - GPO link targeted via Organizational Unit
 
-## Tools Used
+Tools Used
 
 - VirtualBox
 - Windows Server 2022 ISO
@@ -30,10 +30,10 @@ This is a self-paced hands-on lab simulating a basic Active Directory (AD) domai
 - Active Directory Users & Computers
 - Command line + GUI
 
-## Setup Instructions
+Setup Instructions
 
 Detailed walkthrough and troubleshooting are available in the `NOTES.md`.
 
-## Author
+Author
 
 Dami Ola 
