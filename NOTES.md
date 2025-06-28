@@ -2,7 +2,6 @@
 
 This document walks through the steps I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. 
 
----
 
 ## 1. Virtual Machine Setup
 
@@ -43,7 +42,7 @@ Each VM was manually assigned a static IP in the same subnet (`192.168.10.0/24`)
 
 I initially had an issue where the client’s IP settings would reset on every reboot. What fixed it: after manually reentering the static IP config, I disabled and re-enabled the network adapter, that caused it to stick permanently.
 
----
+
 
 ## 3. Windows Server 2022 Setup
 
@@ -59,7 +58,7 @@ After installing Server 2022:
 
 After reboot, the DC’s DNS changed to `127.0.0.1`. This is expected for a domain controller, it points to itself for name resolution.
 
----
+
 
 ## 4. Domain User & OU Setup
 
@@ -71,7 +70,7 @@ Used **Active Directory Users and Computers**:
 - Added `j****.o**` to the `LinuxAdmins` group
 - Moved the user into the `Workforce` OU
 
----
+
 
 ## 5. Shared Folder Setup
 
@@ -82,7 +81,7 @@ On DC01:
 - Enabled sharing, added `Everyone` with read/write access
 - Verified the share path: `\\DC01\Users\Administrator\Desktop\SharedFolder`
 
----
+
 
 ## 6. Group Policy (GPO) Setup for Drive Mapping
 
@@ -105,7 +104,7 @@ Then:
 2. Link the GPO to that OU
 3. Make sure the user is part of the group referenced in the GPO
 
----
+
 
 ## 7. Windows 10 Client Join to Domain
 
@@ -119,7 +118,6 @@ On the client:
 
 I verified the domain join by restarting and logging in with the domain user.
 
----
 
 ## 8. Drive Mapping Verification
 
@@ -132,7 +130,7 @@ What fixed it:
 
 This verified that the Group Policy was applying correctly.
 
----
+
 
 ## 9. Shared Folder Access
 
