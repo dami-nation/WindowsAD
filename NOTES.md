@@ -1,4 +1,4 @@
-# Windows AD Lab – Full Step-by-Step Walkthrough (First-Person)
+# Windows AD Lab – Full Step-by-Step Walkthrough 
 
 This document walks through every step I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. I'm documenting this to make sure others can replicate it without struggle, including the real issues I hit and how I fixed them.
 
