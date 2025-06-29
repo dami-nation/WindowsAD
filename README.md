@@ -12,13 +12,12 @@ Lab Summary
   - Hostname: `CLIENT01`
   - Joined to the `corp.local` domain
 
-Features Implemented
+_Features Implemente_
 
 - Static IP configuration on DC and client
 - Domain setup and user account creation
 - Shared folder (`\\DC01\Users\Administrator\Desktop\SharedFolder`)
 - Group Policy Object (GPO) to auto-map network drive
-- User account moved from `Users` to `Workforce` OU
 - GPO link targeted via Organizational Unit
 
 Tools Used
