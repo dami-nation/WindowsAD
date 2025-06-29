@@ -13,7 +13,52 @@ VMs:
 - Windows Server 2022 (DC01)
 - Windows 10 Enterprise Eval (CLIENT01)
 
-I downloaded Windows Server 2022 ISO directly from Microsoft Evaluation Center. Same for Windows 10. I chose VirtualBox over VMware because it's free and cross-platform.
+I downloaded Windows Server 2022 ISO directly from Microsoft Evaluation Center. Same for Windows 10. I chose VirtualBox over VMware because it just worked better on my MacBook.
+
+Setting up the DC and Client in VirtualBox:
+i.  Create the DC (Windows Server 2022)
+      Open VirtualBox > Click New
+      Name: DC01
+      Type: Microsoft Windows
+      Version: Windows 2022 (64-bit)
+      Memory size: At least 4096 MB (recommended)
+ii.  Hard Disk:
+      Choose “Create a virtual hard disk now”
+      Type: VDI
+      Storage: Dynamically allocated
+      Size: 80 GB
+iii.  Attach ISO:
+      Go to Settings > Storage
+      Under "Controller: IDE", click the empty disk, then choose the Windows Server 2022 ISO using the disk icon.
+
+iv.  Network:
+      Go to Settings > Network
+      Adapter 1: Enable -> Attached to: Internal Network -> Name: intnet
+
+v.   Start the VM, and go through the installation:
+      Choose Windows Server 2022 Standard Evaluation (Desktop Experience)
+      Set a strong administrator password
+
+vi.  Create the Client VM (Windows 10)
+      Open VirtualBox > Click New.
+      Name: CLIENT01
+      Type: Microsoft Windows
+      Version: Windows 10 (64-bit)
+      Memory size: 4096 MB
+      Hard Disk: Create a 60 GB dynamically allocated VDI
+
+vii.  Attach ISO:
+      Go to Settings > Storage
+      Mount the Windows 10 ISO under "Controller: IDE"
+
+viii.  Network:
+      Go to Settings > Network
+      Adapter 1: Enable -> Attached to: Internal Network -> Name: intnet
+      Start the VM and go through the Windows 10 installation:
+      Choose language and region
+      Skip Microsoft account (choose Offline Account)
+      Create a local user
+      Complete the setup wizard
 
 VM Network Settings:
 
