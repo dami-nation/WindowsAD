@@ -13,7 +13,7 @@ VMs:
 - Windows Server 2022 (DC01)
 - Windows 10 Enterprise Eval (CLIENT01)
 
-I downloaded Windows Server 2022 ISO directly from Microsoft Evaluation Center. Same for Windows 10. I chose VirtualBox over VMware because it just worked better on my MacBook.
+I downloaded Windows Server 2022 ISO directly from Microsoft Evaluation Center, I also did the same for Windows 10. I chose VirtualBox over VMware because I preferred the way it worked on my Mac.
 
 Setting up the DC and Client in VirtualBox:
 i.  Create the DC (Windows Server 2022)
@@ -68,7 +68,7 @@ All VMs were set to Internal Network using the following steps:
 3. Attached to: Internal Network
 4. Name: intnet
 
-This allows the VMs to talk to each other while isolating them from the host internet (useful for AD labs). If internet is needed temporarily (e.g., for package installation), add NAT on adapter 2.
+This allows the VMs to talk to each other while isolating them from the host internet. If internet is needed temporarily (e.g., for package installation), then we can add NAT on adapter 2.
 
 
 2. Network Configuration
@@ -85,7 +85,7 @@ Each VM was manually assigned a static IP in the same subnet (192.168.10.0/24):
   - IP: 192.168.10.20  
   - Same gateway and DNS as above
 
-I initially had an issue where the client’s IP settings would reset on every reboot. What fixed it: after manually reentering the static IP config, I disabled and re-enabled the network adapter, that caused it to stick permanently.
+I initially had an issue where the client’s IP settings would reset on every reboot. I fixed it by manually reentering the static IP config, then disabling and reenabling the network adapter, which caused it to stick permanently.
 
 
 
@@ -99,9 +99,9 @@ After installing Server 2022:
 - Promoted the server to a domain controller:
   - Domain name: corp.local
   - NetBIOS: CORP
-  - Functional levels: left at 2016 (since 2019/2022 weren’t available in dropdown)
+  - Functional levels: left at 2016 (since 2019/2022 weren’t available in the dropdown)
 
-After reboot, the DC’s DNS changed to 127.0.0.1. This is expected for a domain controller, it points to itself for name resolution.
+After reboot, the DC’s DNS changed to 127.0.0.1. This is expected for a domain controller; it points to itself for name resolution.
 
 
 
