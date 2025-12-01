@@ -1,6 +1,6 @@
 ### Windows AD Lab
 
-This document walks through the steps I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. 
+This document walks through the steps I took to build a basic Active Directory lab environment using Windows Server 2022 as the domain controller and Windows 10 as the client, all inside VirtualBox. I also have a version of this lab run on UTM, you can check it on my website at https://oladami.com/posts/windows-client-join/
 
 
 1. Virtual Machine Setup
