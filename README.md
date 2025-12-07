@@ -2,6 +2,8 @@
 
 This is a lab simulating a basic Active Directory (AD) domain setup, built from scratch on VirtualBox. The lab includes the installation and configuration of a Windows Server 2022 domain controller and a Windows 10 client machine, domain join, DNS, shared folder access, user/group creation, and GPO enforcement.
 
+I have also linked a newer version of the lab run on UTM on my website. I broke it into two labs. check them out -> https://oladami.com/posts/windows-client-join/ https://oladami.com/posts/windows-ad-lab/
+
 _Lab Summary_
 
 - Domain Controller (Windows Server 2022)
